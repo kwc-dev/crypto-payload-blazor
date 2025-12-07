@@ -1,0 +1,67 @@
+# Build results
+bin/
+obj/
+out/
+
+# Publish results
+*.publish/
+*.pubxml
+*.pubxml.user
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+
+# Visual Studio files
+.vs/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# Package management
+*.nupkg
+*.snupkg
+packages/
+*.lock.json
+
+# ASP.NET scaffolding
+ScaffoldingReadMe.txt
+
+# Node / npm (if using JS interop)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Coverage / test
+coverage/
+*.coverage
+*.coveragexml
+TestResults/
+
+# Resharper / Rider
+_ReSharper*/
+*.DotSettings.user
+
+# Mac / Linux system files
+.DS_Store
+Thumbs.db
+
+# JetBrains Rider
+.idea/
+
+# Others
+launchSettings.json

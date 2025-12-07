@@ -1,0 +1,40 @@
+﻿@page "/"
+@using CryptoPayloadBlazorApp.Services
+
+<h3>Decrypted Map</h3>
+
+@if (restoredMap != null)
+{
+    <ul>
+        @foreach (var kv in restoredMap)
+        {
+            <li><strong>@kv.Key</strong>: @kv.Value</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No payload decrypted yet.</p>
+}
+
+@code {
+    private Dictionary<string, object>? restoredMap;
+
+    protected override void OnInitialized()
+    {
+        string payload = @"{
+          ""ciphertext"": ""9h0NnjtvHAvrR3JG01nEPTSCRUi5Pm9K0nUSbFNiRzilcMmR6zjMk5zZz0VJ4Smg"",
+          ""iv"": ""lpsVMSC9l5tz9+goY2xvsg=="",
+          ""algorithm"": ""AES/CBC/PKCS5Padding""
+        }";
+
+        string base64Key = "MDEyMzQ1Njc4OUFCQ0RFRg=="; // pretend fetched from Key Vault
+
+        restoredMap = CryptoConsumer.DecryptPayload(payload, base64Key);
+
+        foreach (var kv in restoredMap)
+        {
+            Console.WriteLine($"{kv.Key}: {kv.Value}");
+        }
+    }
+}
