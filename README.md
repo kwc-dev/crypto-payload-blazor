@@ -54,7 +54,12 @@ dotnet publish -c Release -r linux-x64 --self-contained false
 cd bin/Release/net8.0/linux-x64/publish
 ```
 
+### Set execute permission
+```bash
+chmod +x ./CryptoPayloadBlazorApp
+```
+
 #### Run the app
 ```bash
-dotnet CryptoPayloadBlazorApp.dll
+ ./CryptoPayloadBlazorApp
 ```
