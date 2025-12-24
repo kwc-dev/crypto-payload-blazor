@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using CryptoPayloadBlazorApp.Services
+@inject IConfiguration Configuration
 
 <h3>Decrypted Map</h3>
 
@@ -28,7 +29,12 @@ else
           ""algorithm"": ""AES/CBC/PKCS5Padding""
         }";
 
-        string base64Key = "MDEyMzQ1Njc4OUFCQ0RFRg=="; // pretend fetched from Key Vault
+        string? base64Key = Configuration["base64-encoded-secret-kwc"];
+        if (string.IsNullOrEmpty(base64Key))
+        {
+            restoredMap = null;
+            return;
+        }
 
         restoredMap = CryptoConsumer.DecryptPayload(payload, base64Key);
 
